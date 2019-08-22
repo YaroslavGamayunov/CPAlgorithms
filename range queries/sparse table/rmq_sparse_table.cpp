@@ -44,7 +44,7 @@ public:
 		log.resize(n);
 
 		for (int i = 2; i < n; i++) {
-			log[i] = log[i / 2] + 1; // precomute logs to make further usage faster
+			log[i] = log[i / 2] + 1; 
 		}
 
 		K = log[n - 1] + 1;
@@ -62,8 +62,8 @@ public:
 		}
 	}
 
-	ll get(ll l, ll r) {
-		ll len = log[r - l + 1];
+	ll get(int l, int r) {
+		int len = log[r - l + 1];
 		return min(table[l][len], table[r - (1 << len) + 1][len]);
 	}
 };
